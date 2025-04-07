@@ -23,7 +23,7 @@ void Manager::Render() {
 	static bool draw = true;
 	ImGui::Begin("App", &draw, windowFlags);
 
-	if (Data::CurrentWindow) {
+	if (Data::CurrentWindow.get() != nullptr) {
 		Data::CurrentWindow->Render();
 	}
 	else {
