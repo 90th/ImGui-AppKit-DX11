@@ -1,6 +1,6 @@
 # ImGui AppKit
 
-This is a simple project template that you can use to quickly start developing simple, single-window GUI apps for [Microsoft Windows](https://www.microsoft.com/en-us/windows). It uses [Dear ImGui library](https://github.com/ocornut/imgui) and heavily utilizes its [multi-viewports functionality](https://github.com/ocornut/imgui/wiki/Multi-Viewports). [Read here why](https://tulach.cc/writing-gui-apps-for-windows-is-painful/).
+This is a simple project template that you can use to quickly start developing simple, single-window & multi-window GUI apps for [Microsoft Windows](https://www.microsoft.com/en-us/windows). It uses [Dear ImGui library](https://github.com/ocornut/imgui) and heavily utilizes its [multi-viewports functionality](https://github.com/ocornut/imgui/wiki/Multi-Viewports). [Read here why](https://tulach.cc/writing-gui-apps-for-windows-is-painful/).
 
 **Note:** An `enhanced` version of the original [ImGui AppKit](https://github.com/SamuelTulach/ImGui-AppKit) by Samuel Tulach, including fixes (e.g., taskbar icon, CPU usage) and modern C++ updates (e.g., smart pointers) and a refactored window manager.
 
