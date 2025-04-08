@@ -1,7 +1,11 @@
 #pragma once
 
-class MainWindow : public WindowBase
-{
+#include "WindowBase.h"
+
+class MainWindow : public WindowBase {
 public:
-    void Render() override;
+	bool Render() override;
+
+private:
+	bool isOpen = true;
 };

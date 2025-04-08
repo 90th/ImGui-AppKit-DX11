@@ -206,8 +206,8 @@
     <ClCompile Include="Source\Manager.cpp" />
     <ClCompile Include="Source\Render.cpp" />
     <ClCompile Include="Source\Style.cpp" />
-    <ClCompile Include="Source\Windows\LoginWindow.cpp" />
     <ClCompile Include="Source\Windows\MainWindow.cpp" />
+    <ClCompile Include="Source\Windows\SplashScreen.cpp" />
     <ClCompile Include="Source\Windows\WindowBase.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -224,8 +224,8 @@
     <ClInclude Include="Source\Render.h" />
     <ClInclude Include="Source\Style.h" />
     <ClInclude Include="Source\Windows\MainWindow.h" />
+    <ClInclude Include="Source\Windows\SplashScreen.h" />
     <ClInclude Include="Source\Windows\WindowBase.h" />
-    <ClInclude Include="Source\Windows\LoginWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,37 +1,22 @@
 #include "Global.h"
 
 void Manager::InitDefault() {
-	Data::CurrentWindow = std::make_unique<LoginWindow>();
-}
-
-void Manager::SetNextSize(const float width, const float height) {
-	Data::NextSizeX = width;
-	Data::NextSizeY = height;
+	Data::CurrentWindow = std::make_unique<SplashScreen>();
 }
 
 void Manager::SwitchWindow(std::unique_ptr<WindowBase> newWindow) {
 	Data::CurrentWindow = std::move(newWindow);
 }
-
 void Manager::Render() {
-	const ImVec2 windowSize = { Data::NextSizeX, Data::NextSizeY };
-	ImGui::SetNextWindowSize(windowSize);
-	ImGui::SetNextWindowPos({ GetSystemMetrics(SM_CXSCREEN) / 2 - windowSize.x / 2, GetSystemMetrics(SM_CYSCREEN) / 2 - windowSize.y / 2 }, ImGuiCond_FirstUseEver);
-	ImGui::SetNextWindowBgAlpha(1.0f);
-
-	constexpr ImGuiWindowFlags windowFlags = ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoResize;
-	static bool draw = true;
-	ImGui::Begin("App", &draw, windowFlags);
-
-	if (Data::CurrentWindow.get() != nullptr) {
-		Data::CurrentWindow->Render();
+	if (Data::CurrentWindow) {
+		bool shouldContinue = Data::CurrentWindow->Render();
+		if (!shouldContinue) {
+			Global::ShouldExit = true;
+		}
 	}
 	else {
-		ImGui::Text("error: no active window.");
+		ImGui::Begin("Error", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
+		ImGui::Text("error: no active window in manager.");
+		ImGui::End();
 	}
-
-	ImGui::End();
-
-	if (!draw)
-		Global::ShouldExit = true;
 }

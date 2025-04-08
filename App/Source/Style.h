@@ -2,5 +2,5 @@
 
 namespace Style
 {
-    void Apply();
+	void Apply();
 }

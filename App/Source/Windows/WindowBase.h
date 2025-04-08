@@ -2,5 +2,7 @@
 
 class WindowBase {
 public:
-	virtual void Render() = 0;
+	virtual ~WindowBase() = default;
+
+	virtual bool Render() = 0;
 };

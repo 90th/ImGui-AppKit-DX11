@@ -4,6 +4,9 @@
 #include <d3d11.h>
 #include <iostream>
 #include <memory>
+#include <string>
+#include <chrono>
+#include <thread>
 
 #include "../Library/ImGui/imgui_impl_dx11.h"
 #include "../Library/ImGui/imgui_impl_win32.h"
@@ -14,7 +17,7 @@
 #include "Windows/WindowBase.h"
 #include "Manager.h"
 
-#include "Windows/LoginWindow.h"
+#include "Windows/SplashScreen.h"
 #include "Windows/MainWindow.h"
 
 namespace Global {

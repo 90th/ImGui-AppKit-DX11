@@ -46,13 +46,13 @@
     <ClCompile Include="Source\Manager.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Windows\LoginWindow.cpp">
-      <Filter>Source\Windows</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Windows\WindowBase.cpp">
       <Filter>Source\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Source\Windows\MainWindow.cpp">
+      <Filter>Source\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Windows\SplashScreen.cpp">
       <Filter>Source\Windows</Filter>
     </ClCompile>
   </ItemGroup>
@@ -96,10 +96,10 @@
     <ClInclude Include="Source\Windows\WindowBase.h">
       <Filter>Source\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Windows\LoginWindow.h">
+    <ClInclude Include="Source\Windows\MainWindow.h">
       <Filter>Source\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Windows\MainWindow.h">
+    <ClInclude Include="Source\Windows\SplashScreen.h">
       <Filter>Source\Windows</Filter>
     </ClInclude>
   </ItemGroup>
