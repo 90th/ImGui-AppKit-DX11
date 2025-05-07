@@ -4,8 +4,9 @@
 
 class MainWindow : public WindowBase {
 public:
+	MainWindow() = default;
 	bool Render() override;
 
 private:
-	bool isOpen = true;
+	bool is_open_ = true;
 };

@@ -1,23 +1,24 @@
 #pragma once
 
-namespace Render
-{
-    namespace Data
-    {
-        inline HWND MainWindow;
-        inline ID3D11Device* Device;
-        inline ID3D11DeviceContext* DeviceContext;
-        inline IDXGISwapChain* SwapChain;
-        inline ID3D11RenderTargetView* RenderTargetView;
-    }
+#include <Windows.h>
+#include <d3d11.h>
 
-    bool CreateRenderTarget();
-    bool CreateDevice();
+namespace Render {
+	namespace Data {
+		inline HWND MainWindow = nullptr;
+		inline ID3D11Device* Device = nullptr;
+		inline ID3D11DeviceContext* DeviceContext = nullptr;
+		inline IDXGISwapChain* SwapChain = nullptr;
+		inline ID3D11RenderTargetView* RenderTargetView = nullptr;
+	}
 
-    void CleanupRenderTarget();
-    void CleanupDevice();
+	bool CreateRenderTarget();
+	bool CreateDevice();
 
-    void Loop();
+	void CleanupRenderTarget();
+	void CleanupDevice();
 
-    LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+	void Loop();
+
+	LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 }

@@ -1,12 +1,19 @@
+#include "Render.h"
 #include "Global.h"
+#include "Manager.h"
+#include "Style.h"
+
+#include "../Library/ImGui/imgui.h"
+#include "../Library/ImGui/imgui_impl_dx11.h"
+#include "../Library/ImGui/imgui_impl_win32.h"
 
 bool Render::CreateRenderTarget() {
-	ID3D11Texture2D* backBuffer;
-	Data::SwapChain->GetBuffer(0, IID_PPV_ARGS(&backBuffer));
-	if (backBuffer != nullptr)
+	ID3D11Texture2D* back_buffer;
+	Data::SwapChain->GetBuffer(0, IID_PPV_ARGS(&back_buffer));
+	if (back_buffer != nullptr)
 	{
-		const HRESULT status = Data::Device->CreateRenderTargetView(backBuffer, nullptr, &Data::RenderTargetView);
-		backBuffer->Release();
+		const HRESULT status = Data::Device->CreateRenderTargetView(back_buffer, nullptr, &Data::RenderTargetView);
+		back_buffer->Release();
 		return status == S_OK;
 	}
 	return false;
@@ -133,7 +140,7 @@ void Render::Loop() {
 		SetWindowPos(viewportHwnd, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED | SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_NOOWNERZORDER);
 	}
 
-	while (!Global::ShouldExit) {
+	while (!Global::should_exit) {
 		MSG msg;
 		bool gotMessage = false;
 		while (PeekMessage(&msg, nullptr, 0U, 0U, PM_REMOVE)) {
@@ -141,10 +148,10 @@ void Render::Loop() {
 			DispatchMessage(&msg);
 			gotMessage = true;
 			if (msg.message == WM_QUIT)
-				Global::ShouldExit = true;
+				Global::should_exit = true;
 		}
 
-		if (Global::ShouldExit)
+		if (Global::should_exit)
 			break;
 
 		if (!gotMessage) {

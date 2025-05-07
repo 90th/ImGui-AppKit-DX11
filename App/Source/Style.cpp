@@ -1,4 +1,5 @@
-#include "Global.h"
+#include "Style.h"
+#include "../Library/ImGui/imgui.h"
 
 void Style::Apply()
 {

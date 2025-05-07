@@ -1,13 +1,13 @@
 #pragma once
 
-#include "../Global.h"
+#include "WindowBase.h"
 
 class SplashScreen : public WindowBase {
 private:
-	int frameCounter = 0;
-	const int delayFrames = 180;
+	int frame_counter_ = 0;
+	const int kDelayFrames = 180;
 
 public:
-
+	SplashScreen() = default;
 	bool Render() override;
 };
